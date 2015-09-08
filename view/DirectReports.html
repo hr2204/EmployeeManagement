@@ -1,0 +1,27 @@
+<div >
+  <h1> Direct Reports </h1>
+  <table class="table table-striped">
+  	<tbody>
+      <tr  ng-repeat="employee in reporter | startFrom:currentPage*pageSize | limitTo:pageSize ">
+    	  <td><img class="picStyle" ng-src="pics/{{employee.pic}}"><td>
+        <td class="nameStyle">{{ employee.firstName }}</td>
+        <td class="nameStyle">{{ employee.lastName }}</td>
+    	  <td class="titleStyle">{{employee.title}}</td>
+    	  <td class="numberStyle">{{employee.reports}}</td>
+    	  <td>
+      		<a href="#/edituser/{{employee.id}}">
+              <button class="btn btn-primary" ng-click="editUser(user.id)">
+                <span class="glyphicon glyphicon glyphicon-chevron-right"></span>
+              </button>
+      		</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-success" ng-disabled="error || incomplete" ng-click="createUser()">
+    <span class="glyphicon glyphicon-user"></span>Create New User
+  </button>
+  <a href="#/">
+    <button class="btn btn-success">Back to Home</button>
+  </a>
+</div>

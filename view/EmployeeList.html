@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>Employee Directory</h1>
+
+  <p class="filterStyle">
+    Filtering input: <input type="text" ng-model="search">
+    <input type="button" class="btn btn-primary" value="Pre" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1"/>
+    {{currentPage+1}}/{{numberOfPages()}}
+    <input type="button" class="btn btn-primary" value="Next" ng-disabled="currentPage >= employees.length/pageSize - 1" ng-click="currentPage=currentPage+1"/>
+  </p>
+  <!--<thead>
+    <tr>
+      <th><a href="" ng-click="reverse=!reverse;order('fName', reverse)">Image</a> </th>
+      <th><a href="" ng-click="reverse=!reverse;order('fName', reverse)">First Name</a> </th>
+      <th><a href="" ng-click="reverse=!reverse;order('lName', reverse)">Last Name</a> </th>
+	  <th><a href="" ng-click="reverse=!reverse;order('sex', reverse)">Title</a> </th>
+	  <th><a href="" ng-click="reverse=!reverse;order('age',reverse)">D</a> </th>
+	  <th>Details</th>
+    </tr>
+  </thead>-->
+  <table class="table table-striped">
+    <tbody>
+      <tr ng-repeat="employee in employees | filter:search | startFrom:currentPage*pageSize | limitTo:pageSize">
+  	  <td><img class="picStyle" ng-src="pics/{{employee.pic}}"></td>
+      <td class="nameStyle">{{ employee.firstName }}</td>
+      <td class="nameStyle">{{ employee.lastName }}</td>
+      <td class="titleStyle">{{employee.title}}</td>
+      <td class="numberStyle">{{employee.reports}}</td>
+      <td>
+    		<a href="#/edituser/{{employee.id}}">
+            <button class="btn btn-primary" ng-click="editUser(user.id)">
+              <span class="glyphicon glyphicon glyphicon-chevron-right"></span>
+            </button>
+    		</a>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+    <a href="#/newuser">
+      <button class="btn btn-success" >
+        <span class="glyphicon glyphicon-user"></span>Create New User
+      </button>
+    </a>
+  </hr>
+</div>
+

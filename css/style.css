@@ -1,0 +1,39 @@
+.picStyle{
+	height: 80px;
+}
+
+.nameStyle {
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-size: 25px;
+}
+
+.titleStyle {
+	color: #999999;
+	font-size: 24px;
+}
+
+.numberStyle {
+	color: #7D7DFF;
+	font-size: 24px;
+}
+
+.cityStyle {
+	color: #999999;
+	font-size: 15px;
+}
+
+.detailStyle {
+	background-color: #999999;
+}
+
+.filterStyle {
+	font-size: 20px;
+}
+
+.filterSize {
+	font-size: 15px;
+}
+
+.frontPic {
+	height: 204px;
+}

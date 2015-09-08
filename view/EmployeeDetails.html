@@ -1,0 +1,24 @@
+<div>
+ <h1>Employee Details</h3>
+ <div class="container">
+    <div class="col-md-4 col-xs-12">
+    <img ng-src="pics/{{employee.pic}}" class="frontPic">
+        <h1>{{employee.firstName}} {{employee.lastName}}</h1>
+        <h2 class="titleStyle">{{employee.title}}</h2>
+        <h2 class="cityStyle">{{employee.city}}</h2>
+    </div>
+	<div class="col-md-8 col-xs-12 list-group">
+        <a class="list-group-item list-group-item-info" ng-show="employee.managerId" href="#/edituser/{{employee.managerId}}">View Manager<p>{{employee.managerName}}</p></a>
+        <a class="list-group-item" ng-show="employee.reports" href="#/edituser/{{employee.id}}/dir">View Direct Reports<p>{{employee.reports}}</p></a>
+		<a class="list-group-item" ng-show="employee.officePhone" href="tel:{{employee.officePhone}}">Call Office<p>{{employee.officePhone}}</p></a>
+        <a class="list-group-item" ng-show="employee.cellPhone" href="tel:{{employee.cellPhone}}">Call Cell<p>{{employee.cellPhone}}</p></a>
+        <a class="list-group-item" ng-show="employee.cellPhone" href="sms:{{employee.cellPhone}}">SMS<p>{{employee.cellPhone}}</p></a>
+        <a class="list-group-item" ng-show="employee.email" href="mailto:{{employee.email}}">Email<p>{{employee.email}}</p></a>
+    </div>
+ </div>
+	
+  <button class="btn btn-success" ng-disabled="error || incomplete" ng-click="saveChanges()">
+    <span class="glyphicon glyphicon-save"></span>Save Changes
+    </button>
+    <a href="#/"><button class="btn btn-success">  Back to home</button></a>
+</div>
